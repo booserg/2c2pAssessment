@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2c2pAssessment.Tests.Servic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2c2pAssessment.Dal", "2c2pAssessment.Dal\2c2pAssessment.Dal.csproj", "{0557FD4C-03FB-452F-B8FF-44E3D06B73CC}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "2c2pAssessment.Database", "2c2pAssessment.Database\2c2pAssessment.Database.sqlproj", "{005671B3-4F39-469E-A881-57DCC6B932B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,12 @@ Global
 		{0557FD4C-03FB-452F-B8FF-44E3D06B73CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0557FD4C-03FB-452F-B8FF-44E3D06B73CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0557FD4C-03FB-452F-B8FF-44E3D06B73CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{005671B3-4F39-469E-A881-57DCC6B932B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{005671B3-4F39-469E-A881-57DCC6B932B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{005671B3-4F39-469E-A881-57DCC6B932B9}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{005671B3-4F39-469E-A881-57DCC6B932B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{005671B3-4F39-469E-A881-57DCC6B932B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{005671B3-4F39-469E-A881-57DCC6B932B9}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
