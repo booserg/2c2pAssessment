@@ -11,6 +11,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.EntityFrameworkCore;
+using dc = _2c2pAssessment.DataContext;
 
 namespace _2c2pAssessment.WebApi
 {
@@ -50,7 +52,16 @@ namespace _2c2pAssessment.WebApi
 
 				c.DescribeAllEnumsAsStrings();
 			});
-			services.AddTransient<ICardStorage, FakeCardStorage>();
+			services.AddDbContext<dc.DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+			services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+			{
+				builder.AllowAnyOrigin()
+					   .AllowAnyMethod()
+					   .AllowAnyHeader()
+					   .AllowCredentials();
+			}));
+			services.AddTransient<Func<dc.DataContext>>(cont => () => cont.GetService<dc.DataContext>());
+			services.AddTransient<ICardStorage, CardStorage>();
 			services.AddTransient<INumberService, NumberService>();
 			services.AddTransient<ICardTypeResolver, CardTypeResolver>();
 			services.AddTransient<ICardValidator, CardValidator>();
