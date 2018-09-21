@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <RootNamespace>_2c2pAssessment.Services</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\2c2pAssessment.Dal.Contracts\2c2pAssessment.Dal.Contracts.csproj" />
+    <ProjectReference Include="..\2c2pAssessment.Services.Contracts\2c2pAssessment.Services.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>
