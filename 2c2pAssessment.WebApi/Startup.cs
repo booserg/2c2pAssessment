@@ -1,6 +1,10 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
+using _2c2pAssessment.Dal;
+using _2c2pAssessment.Dal.Contracts;
+using _2c2pAssessment.Services;
+using _2c2pAssessment.Services.Contracts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -46,6 +50,10 @@ namespace _2c2pAssessment.WebApi
 
 				c.DescribeAllEnumsAsStrings();
 			});
+			services.AddTransient<ICardStorage, FakeCardStorage>();
+			services.AddTransient<INumberService, NumberService>();
+			services.AddTransient<ICardTypeResolver, CardTypeResolver>();
+			services.AddTransient<ICardValidator, CardValidator>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -13,6 +13,13 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="3.0.0" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\2c2pAssessment.Dal.Contracts\2c2pAssessment.Dal.Contracts.csproj" />
+    <ProjectReference Include="..\2c2pAssessment.Dal\2c2pAssessment.Dal.csproj" />
+    <ProjectReference Include="..\2c2pAssessment.Services.Contracts\2c2pAssessment.Services.Contracts.csproj" />
+    <ProjectReference Include="..\2c2pAssessment.Services\2c2pAssessment.Services.csproj" />
+  </ItemGroup>
 	<PropertyGroup>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<NoWarn>$(NoWarn);1591</NoWarn>

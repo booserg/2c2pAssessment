@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using _2c2pAssessment.Services.Contracts;
+using _2c2pAssessment.Services.Data;
 using _2c2pAssessment.WebApi.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,8 +10,13 @@ namespace _2c2pAssessment.WebApi.Controllers
 	[ApiController]
 	public class CardsValidationController : BaseController
 	{
-		public CardsValidationController()
+		private readonly ICardValidator _cardValidator;
+		private readonly INumberService _numberService;
+
+		public CardsValidationController(ICardValidator cardValidator, INumberService numberService)
 		{
+			_cardValidator = cardValidator;
+			_numberService = numberService;
 		}
 
 		/// <summary>
@@ -38,7 +42,12 @@ namespace _2c2pAssessment.WebApi.Controllers
 			if (card == null || card.CardNumber == null || String.IsNullOrEmpty(card.CardNumber))
 				return StatusCode(422);
 
-			return new JsonResult(new ValidationResultModel(), jsonSerializerSettings);
+			if (!_numberService.IsDigitsOnly(card.CardNumber))
+				return StatusCode(422);
+
+			var validationResult = _cardValidator.ValidateCard(new Card(card.CardNumber));
+
+			return new JsonResult(new ValidationResultModel(validationResult.CardType, validationResult.ValidationResult), jsonSerializerSettings);
 		}
 	}
 }
